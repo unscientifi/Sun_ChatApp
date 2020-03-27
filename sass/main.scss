@@ -12,14 +12,17 @@ main {
 	height: 100%;
 	flex-direction: row;
 }
+
 .form-container, .messages { padding: 20px; }
 .form-container { 
 	flex: 1; 
 	border: 6px solid #bfcfd6;
 	background-color: #e3edf1;
+	
 
 	label { display: block; margin-bottom: 0.5rem; }
 }
+
 
 .messages { 
 	flex: 2;
@@ -67,6 +70,26 @@ form {
 	li:nth-child(odd) { background: #eee; }
 }
 
+
+
+.modal {
+	
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: rgba($color: #000000, $alpha: 0.7);
+	position: absolute;
+	top: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
 // imports
 
 @import 'modules/_message';
+@import 'modules/_nickname';
+

@@ -3,32 +3,62 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Socket IO Chat with Node!</title>
+	<title>RyandApp</title>
 	<link rel="stylesheet" href="css/main.css">
 	<script src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
 	<main id="app">
-		<section class="form-container">
-			<label for="nickname">Your Nickname (optional)</label>
-			<input type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
+		
+			<div class="modal">
+				<form id="name-form">
+					<label for="nickname">Your Nickname (optional)</label>
+					<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
 
+					<input @click.prevent="submitName" type="submit">
+
+				</form>
+			</div>
+	
+
+		<div class="messages">
+			<roommessage :msg="message" v-for="message in messages" class="room-message"></roommessage>
+
+			<leavemessage :msg="message" v-for="message in messages" class="leave-message"></leavemessage>
+
+			<ul id="messages" >
+				<newmessage :msg="message" v-for="message in messages"></newmessage>
+			</ul>
+		</div>	
+	
+
+		<section class="form-container">
+
+		<div class="container">
 			<form>
 				<label for="message">Something to say?</label>
-				<textarea class="message" type="text" autocomplete="off" id="textarea"></textarea>
-				<input type="submit">
-			</form>
-		</section>
+				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea" onfocus="this.value=''"></textarea>
 
-		<section class="messages">
-			<ul id="messages">
-				<!-- render a new message component for every message -->
-			</ul>
+				<input @click.prevent="dispatchMessage" type="submit">
+
+				<input @click.prevent="leaveRoom" type="submit" value="leave">
+			</form>
+		</div>
+
+		
 		</section>
 	</main>
-	<!-- <script src="/socket.io/socket.io.js"></script> -->
+
+	<script src="/socket.io/socket.io.js"></script>
 	<script type="module" src="js/main_vm.js"></script>
 </body>
 
+
+<!-- hide the textarea -->
+<script>
+document.querySelector('.container').style.visibility='hidden';
+document.querySelector('.leave-message').style.visibility='hidden';</script>
+
 </html>
+

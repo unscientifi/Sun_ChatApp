@@ -13,6 +13,30 @@
 
 .my-message {
     float: right !important;
-    background-color: #86bf9d;
+    background-color: #9cd8dc;
     color: white;
+}
+
+.room-message { 
+    span { font-size: 0.8rem; display: block; margin-bottom: 2px; }
+
+    width: 45%;
+    padding: 8px;
+    background-color: white; 
+    border-radius: 8px;
+    margin-bottom: 1rem;
+
+    margin: 0 auto;
+}
+
+.leave-message { 
+    span { font-size: 0.8rem; display: block; margin-bottom: 2px; }
+
+    width: 45%;
+    padding: 8px;
+    background-color: white; 
+    border-radius: 8px;
+    margin-bottom: 1rem;
+
+    margin: 0 auto;
 }
